@@ -25,4 +25,11 @@ $("input[type='text']").keypress(function(event) {
     $("ul").append('<li><span><i class="fa fa-trash"></i></span> ' + toDoText + "</li>")
     $(this).val("");
   }
-})
+});
+
+$("h1 i").click(function() {
+  $("input[type='text']").fadeToggle(400, function() {
+    $("h1 i").toggleClass("fa-minus");
+    $("h1 i").toggleClass("fa-plus");
+  });
+});

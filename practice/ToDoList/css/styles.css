@@ -4,7 +4,7 @@ body {
   background: linear-gradient(to left, #093028 , #237A57); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.fa-plus {
+h1 i {
   float: right;
 }
 
@@ -35,6 +35,11 @@ li:nth-child(2n) {
   background-color: #f7f7f7
 }
 
+li:hover span {
+  width: 40px;
+  opacity: 1.0;
+}
+
 span {
   background: #e74c3c;
   height: 40px;
@@ -45,11 +50,6 @@ span {
   display: inline-block;
   transition: 0.2s linear;
   opacity: 0;
-}
-
-li:hover span {
-  width: 40px;
-  opacity: 1.0;
 }
 
 input[type="text"] {
