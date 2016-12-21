@@ -22,7 +22,7 @@ $("input[type='text']").keypress(function(event) {
   if (event.which === 13) {
     // <enter> pressed
     var toDoText = $(this).val();
-    $("ul").append("<li><span>X</span> " + toDoText + "</li>")
+    $("ul").append('<li><span><i class="fa fa-trash"></i></span> ' + toDoText + "</li>")
     $(this).val("");
   }
 })
