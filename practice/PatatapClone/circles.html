@@ -6,11 +6,22 @@
     <link rel="stylesheet" href="css/circles.css">
     <script type="text/javascript" src="js/lib/paper-full.js"></script>
     <script type="text/paperscript" canvas="myCanvas">
+    var circles = [];
     function onKeyDown(event) {
       var maxPoint = new Point(view.size.width, view.size.height);
       var randomPoint = Point.random();
       var point = maxPoint * randomPoint;
-	     new Path.Circle(point, 10).fillColor = "orange";
+      var circle = new Path.Circle(point, 300);
+      circle.fillColor = "orange";
+      // TODO: Optimize by removing circle after animation is complete
+	    circles.push(circle);
+    }
+
+    function onFrame(event) {
+      for (var i = 0; i < circles.length; i++) {
+        circles[i].fillColor.hue += 1;
+        circles[i].scale(0.9);
+      }
     }
     </script>
   </head>
