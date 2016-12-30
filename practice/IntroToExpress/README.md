@@ -2,12 +2,6 @@
 
 A simple introduction to using Express.js.
 
-## Install
-
-```bash
-$ npm install utility
-```
-
 ## Run
 
 ```js
