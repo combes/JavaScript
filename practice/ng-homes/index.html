@@ -7,12 +7,55 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
   <body ng-app="ngHomes" ng-controller="homesController">
-    <div class="well" ng-repeat="home in homes">
-      <h3>{{ home.address }}</h3>
-      <p><strong>Type: </strong>{{ home.type }}</p>
-      <p><strong>Description: </strong>{{ home.description }}</p>
-      <p><strong>Price: </strong>{{ home.price | currency }}</p>
+
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">ng-homes</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Real Estate Listings -->
+    <div class="container">
+      <div class="col-sm-4" ng-repeat="home in homes">
+        <div class="thumbnail">
+          <img ng-src="images/{{home.image}}.jpg" alt="">
+          <div class="caption">
+            <div ng-hide="showDetails === true">
+              <h3><i class="glyphicon glyphicon-tag"></i>{{home.price | currency}}</h3>
+              <h4><i class="glyphicon glyphicon-home"></i> {{home.address}}
+                <span class="label label-primary label-sm">{{home.type}}</span>
+              </h4>
+            </div>
+
+            <button class="btn btn-xs btn-success"
+                    ng-hide="showDetails === true"
+                    ng-click="showDetails = !showDetails">
+                    Details
+            </button>
+
+            <button class="btn btn-xs btn-danger"
+                    ng-show="showDetails === true"
+                    ng-click="showDetails = !showDetails">
+                    Close
+            </button>
+
+            <div class="details" ng-show="showDetails === true">
+              <h4>
+                <span class="label label-primary">Beds: {{home.details.bedrooms}}</span>
+                <span class="label label-primary">Baths: {{home.details.bathrooms}}</span>
+                <span class="label label-primary">SqFt: {{home.details.area}}</span>
+              </h4>
+              <p>{{home.description}}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
+
   </body>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

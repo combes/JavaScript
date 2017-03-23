@@ -9,4 +9,8 @@ angular
   }, function errorCallback(response) {
     console.log(response.statusText);
   });
+
+  $scope.sayHello = function() {
+    console.log("Hello");
+  }
 });
